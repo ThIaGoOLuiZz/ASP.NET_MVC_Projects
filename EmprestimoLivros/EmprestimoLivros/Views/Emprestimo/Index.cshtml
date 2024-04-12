@@ -1,28 +1,36 @@
 ﻿@model IEnumerable<EmprestimoModel>
 
+<div class="container">
 
-<table class="table table-dark table-hover">
-    <thead>
-        <tr>
-            <th scope="col">Recebedor</th>
-            <th scope="col">Fornecedor</th>
-            <th scope="col">Livro</th>
-            <th scope="col">Última Atualização</th>
-        </tr>
-    </thead>
-    <tbody>
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <h1>Empréstimos</h1>
+        <a class="btn btn-success mx-2" asp-controller="Emprestimo" asp-action="Cadastrar">Cadastrar novo empréstimo</a>
+    </div>
 
-        @if(Model != null)
-        {
-            @foreach (var emprestimo in Model)
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Recebedor</th>
+                <th scope="col">Fornecedor</th>
+                <th scope="col">Livro</th>
+                <th scope="col">Última Atualização</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @if(Model != null)
             {
-                    <tr>
-                        <th scope="row">@emprestimo.Recebedor</th>
-                        <td>@emprestimo.Fornecedor</td>
-                        <td>@emprestimo.LivroEmprestado</td>
-                        <td>@emprestimo.dataUltimaAtualizacao</td>
-                    </tr>
+                @foreach (var emprestimo in Model)
+                {
+                        <tr>
+                            <th scope="row">@emprestimo.Recebedor</th>
+                            <td>@emprestimo.Fornecedor</td>
+                            <td>@emprestimo.LivroEmprestado</td>
+                            <td>@emprestimo.dataUltimaAtualizacao</td>
+                        </tr>
+                }
             }
-        }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+
+</div>
