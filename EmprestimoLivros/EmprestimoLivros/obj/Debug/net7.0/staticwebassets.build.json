@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LX3YACm+AMPF1PRuIU3DU2eDmrY7KQ23IQeOhMW+ODE=",
+  "Hash": "aR4uYx95t9eL+BpSxZXR3/dsaVH3ZIxDcD6Vz1Zf+kA=",
   "Source": "EmprestimoLivros",
   "BasePath": "_content/EmprestimoLivros",
   "Mode": "Default",
@@ -51,6 +51,23 @@
       "OriginalItemSpec": "C:\\Users\\thiag\\Desktop\\Projetos_ASP.NET_MVC\\EmprestimoLivros\\EmprestimoLivros\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\EmprestimoLivros.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\thiag\\Desktop\\Projetos_ASP.NET_MVC\\EmprestimoLivros\\EmprestimoLivros\\wwwroot\\css\\Materia.css",
+      "SourceId": "EmprestimoLivros",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\thiag\\Desktop\\Projetos_ASP.NET_MVC\\EmprestimoLivros\\EmprestimoLivros\\wwwroot\\",
+      "BasePath": "_content/EmprestimoLivros",
+      "RelativePath": "css/Materia.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Materia.css"
+    },
+    {
       "Identity": "C:\\Users\\thiag\\Desktop\\Projetos_ASP.NET_MVC\\EmprestimoLivros\\EmprestimoLivros\\wwwroot\\css\\site.css",
       "SourceId": "EmprestimoLivros",
       "SourceType": "Discovered",
@@ -83,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\thiag\\Desktop\\Projetos_ASP.NET_MVC\\EmprestimoLivros\\EmprestimoLivros\\wwwroot\\img\\read_book_study_icon-icons.com_51077.png",
+      "SourceId": "EmprestimoLivros",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\thiag\\Desktop\\Projetos_ASP.NET_MVC\\EmprestimoLivros\\EmprestimoLivros\\wwwroot\\",
+      "BasePath": "_content/EmprestimoLivros",
+      "RelativePath": "img/read_book_study_icon-icons.com_51077.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\read_book_study_icon-icons.com_51077.png"
     },
     {
       "Identity": "C:\\Users\\thiag\\Desktop\\Projetos_ASP.NET_MVC\\EmprestimoLivros\\EmprestimoLivros\\wwwroot\\js\\site.js",
