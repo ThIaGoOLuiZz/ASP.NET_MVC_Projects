@@ -7,6 +7,15 @@
         <a class="btn btn-success mx-2" asp-controller="Emprestimo" asp-action="Cadastrar"><i class="bi bi-plus"></i> Cadastrar novo empréstimo</a>
     </div>
 
+    @if(TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success text-bg-dangeralert-light" role="alert">
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+
+
+
     <table id="Emprestimos" class="table table-light table-hover">
         <thead>
             <tr>
@@ -38,4 +47,4 @@
         </tbody>
     </table>
 
-</div>
+</>
