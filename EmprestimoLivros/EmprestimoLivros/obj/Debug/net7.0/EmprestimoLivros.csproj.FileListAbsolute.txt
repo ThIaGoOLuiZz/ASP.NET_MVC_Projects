@@ -73,3 +73,10 @@ C:\Users\thiag\Desktop\Projetos_ASP.NET_MVC\EmprestimoLivros\EmprestimoLivros\ob
 C:\Users\thiag\Desktop\Projetos_ASP.NET_MVC\EmprestimoLivros\EmprestimoLivros\obj\Debug\net7.0\EmprestimoLivros.pdb
 C:\Users\thiag\Desktop\Projetos_ASP.NET_MVC\EmprestimoLivros\EmprestimoLivros\obj\Debug\net7.0\EmprestimoLivros.genruntimeconfig.cache
 C:\Users\thiag\Desktop\Projetos_ASP.NET_MVC\EmprestimoLivros\EmprestimoLivros\obj\Debug\net7.0\ref\EmprestimoLivros.dll
+C:\Users\thiag\Desktop\Projetos_ASP.NET_MVC\EmprestimoLivros\EmprestimoLivros\bin\Debug\net7.0\ClosedXML.dll
+C:\Users\thiag\Desktop\Projetos_ASP.NET_MVC\EmprestimoLivros\EmprestimoLivros\bin\Debug\net7.0\DocumentFormat.OpenXml.dll
+C:\Users\thiag\Desktop\Projetos_ASP.NET_MVC\EmprestimoLivros\EmprestimoLivros\bin\Debug\net7.0\ExcelNumberFormat.dll
+C:\Users\thiag\Desktop\Projetos_ASP.NET_MVC\EmprestimoLivros\EmprestimoLivros\bin\Debug\net7.0\Irony.dll
+C:\Users\thiag\Desktop\Projetos_ASP.NET_MVC\EmprestimoLivros\EmprestimoLivros\bin\Debug\net7.0\SixLabors.Fonts.dll
+C:\Users\thiag\Desktop\Projetos_ASP.NET_MVC\EmprestimoLivros\EmprestimoLivros\bin\Debug\net7.0\System.IO.Packaging.dll
+C:\Users\thiag\Desktop\Projetos_ASP.NET_MVC\EmprestimoLivros\EmprestimoLivros\bin\Debug\net7.0\XLParser.dll
