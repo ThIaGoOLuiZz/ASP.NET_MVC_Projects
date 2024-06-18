@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ContextoUsuario>(
-    options => options.UseSqlServer("server=COMPUTADOR; DataBase=DB_SistemaContatos; trusted_connection=true; TrustServerCertificate=True;")
+    options => options.UseSqlServer("server=COMPUTADOR; DataBase=Usuarios; trusted_connection=true; TrustServerCertificate=True;")
 );
 
 
@@ -30,6 +30,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Usuarios}/{action=Register}/{id?}");
 
 app.Run();
