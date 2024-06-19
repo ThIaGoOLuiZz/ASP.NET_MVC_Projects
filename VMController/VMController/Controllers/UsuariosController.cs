@@ -22,142 +22,78 @@ namespace VMController.Controllers
         // GET: Usuarios
         public async Task<IActionResult> Index()
         {
-              return _context.Usuarios != null ? 
-                          View(await _context.Usuarios.ToListAsync()) :
-                          Problem("Entity set 'ContextoUsuario.Usuarios'  is null.");
+            return _context.Usuarios != null ?
+                        View(await _context.Usuarios.ToListAsync()) :
+                        Problem("Entity set 'ContextoUsuario.Usuarios'  is null.");
         }
 
-        // GET: Usuarios/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Usuarios == null)
-            {
-                return NotFound();
-            }
-
-            var usuario = await _context.Usuarios
-                .FirstOrDefaultAsync(m => m.IdUsuario == id);
-            if (usuario == null)
-            {
-                return NotFound();
-            }
-
-            return View(usuario);
-        }
-
-        // GET: Usuarios/Create
+        // GET: Usuarios/Register
         public IActionResult Register()
         {
             return View();
         }
 
-        // POST: Usuarios/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        // POST: Usuarios/Register
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register([Bind("IdUsuario,Nome,Email,Senha")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
+                // Verifica se o email já está cadastrado
+                var existingUser = await _context.Usuarios.FirstOrDefaultAsync(u => u.Email == usuario.Email);
+                if (existingUser != null)
+                {
+                    ModelState.AddModelError("", "Email já cadastrado.");
+                    return View(usuario);
+                }
+
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                TempData["SuccessMessage"] = "Usuário cadastrado com sucesso!";
+                return RedirectToAction("Login", "Usuarios");
             }
             return View(usuario);
         }
 
-        // GET: Usuarios/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Usuarios == null)
-            {
-                return NotFound();
-            }
-
-            var usuario = await _context.Usuarios.FindAsync(id);
-            if (usuario == null)
-            {
-                return NotFound();
-            }
-            return View(usuario);
-        }
-
-        // POST: Usuarios/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdUsuario,Nome,Email,Senha")] Usuario usuario)
+        public async Task<IActionResult> Login([Bind("Email,Senha")] Usuario model)
         {
-            if (id != usuario.IdUsuario)
-            {
-                return NotFound();
-            }
+            ModelState.Remove("Nome");
 
             if (ModelState.IsValid)
             {
-                try
+                var user = await _context.Usuarios
+                    .FirstOrDefaultAsync(u => u.Email == model.Email && u.Senha == model.Senha);
+
+                if (user != null)
                 {
-                    _context.Update(usuario);
-                    await _context.SaveChangesAsync();
+                    Console.WriteLine("Usuário encontrado: " + user.Email);
+                    return RedirectToAction("Index", "Home");
                 }
-                catch (DbUpdateConcurrencyException)
+                else
                 {
-                    if (!UsuarioExists(usuario.IdUsuario))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    ModelState.AddModelError(string.Empty, "Usuário ou senha inválidos.");
                 }
-                return RedirectToAction(nameof(Index));
             }
-            return View(usuario);
-        }
-
-        // GET: Usuarios/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Usuarios == null)
+            else
             {
-                return NotFound();
+                Console.WriteLine("ModelState é inválido");
+                foreach (var state in ModelState)
+                {
+                    Console.WriteLine($"{state.Key}: {string.Join(", ", state.Value.Errors.Select(e => e.ErrorMessage))}");
+                }
             }
-
-            var usuario = await _context.Usuarios
-                .FirstOrDefaultAsync(m => m.IdUsuario == id);
-            if (usuario == null)
-            {
-                return NotFound();
-            }
-
-            return View(usuario);
-        }
-
-        // POST: Usuarios/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Usuarios == null)
-            {
-                return Problem("Entity set 'ContextoUsuario.Usuarios'  is null.");
-            }
-            var usuario = await _context.Usuarios.FindAsync(id);
-            if (usuario != null)
-            {
-                _context.Usuarios.Remove(usuario);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return View(model);
         }
 
         private bool UsuarioExists(int id)
         {
-          return (_context.Usuarios?.Any(e => e.IdUsuario == id)).GetValueOrDefault();
+            return (_context.Usuarios?.Any(e => e.IdUsuario == id)).GetValueOrDefault();
         }
     }
 }

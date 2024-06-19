@@ -1,43 +1,70 @@
 ﻿@model VMController.Models.Usuario
 
 @{
-    ViewData["Title"] = "Create";
+    Layout = null;  // Não usa layout
+    ViewData["Title"] = "Registrar";
 }
 
-<h1>Create</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - VMController</title>
+    <link rel="stylesheet" href="~/css/usuario.css" /> <!-- Inclua CSS específico se necessário -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <div class="fadeIn first text-center mt-3 mb-3">
+                <h1>Registro</h1>
+            </div>
 
-<h4>Usuario</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Register">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
+            <!-- Exibe erros gerais e mensagens de sucesso abaixo do título -->
+            <div class="custom-validation-summary text-center">
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <p class="text-danger">Email já cadastrado.</p>
+                }
+
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <p class="text-success">@TempData["SuccessMessage"]</p>
+                }
             </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+
+            <form asp-action="Register">
+                <div class="form-group">
+                    <input asp-for="Nome" class="fadeIn second form-control" placeholder="Nome" />
+                </div>
+
+                <div class="form-group">
+                    <input asp-for="Email" class="fadeIn second form-control" placeholder="Email" />
+                </div>
+
+                <div class="form-group">
+                    <input asp-for="Senha" type="password" class="fadeIn third form-control" placeholder="Senha" />
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="fadeIn fourth btn btn-primary" value="Registrar" />
+                </div>
+            </form>
+
+            <div class="teste">
+                <a asp-controller="Usuarios" asp-action="Login">Já possui login?</a>
             </div>
-            <div class="form-group">
-                <label asp-for="Senha" class="control-label"></label>
-                <input asp-for="Senha" class="form-control" />
-                <span asp-validation-for="Senha" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        <!-- Renderiza scripts de validação -->
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+</body>
+</html>

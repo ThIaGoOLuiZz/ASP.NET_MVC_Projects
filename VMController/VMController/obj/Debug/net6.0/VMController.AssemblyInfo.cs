@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VMController")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fc55c599e68e57d01bea1c5c2e8d6f1c46f38abc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f3beb841dd199d11ad91e78861cba4b804569c56")]
 [assembly: System.Reflection.AssemblyProductAttribute("VMController")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VMController")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

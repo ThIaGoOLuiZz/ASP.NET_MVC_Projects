@@ -9,8 +9,16 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\thiag\\Desktop\\ASP.NET_MVC_Projects\\VMController\\VMController\\wwwroot\\css\\usuario.css",
+      "PackagePath": "staticwebassets\\css\\usuario.css"
+    },
+    {
       "Id": "C:\\Users\\thiag\\Desktop\\ASP.NET_MVC_Projects\\VMController\\VMController\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\thiag\\Desktop\\ASP.NET_MVC_Projects\\VMController\\VMController\\wwwroot\\js\\Usuario.js",
+      "PackagePath": "staticwebassets\\js\\Usuario.js"
     },
     {
       "Id": "C:\\Users\\thiag\\Desktop\\ASP.NET_MVC_Projects\\VMController\\VMController\\wwwroot\\js\\site.js",
