@@ -12,9 +12,42 @@
     <title>@ViewData["Title"] - VMController</title>
     <link rel="stylesheet" href="~/css/usuario.css" /> <!-- Inclua CSS específico se necessário -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <style>
+        #registerButton:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+            #registerButton:disabled:hover,
+            #registerButton:disabled:active,
+            #registerButton:disabled:focus {
+                background-color: #007bff; /* Cor original do botão */
+                border-color: #007bff; /* Cor original da borda do botão */
+                box-shadow: none; /* Remove o efeito de shadow */
+            }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 0px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #6c757d;
+            width: 1.5em;
+            height: 1.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
     <div class="wrapper fadeInDown">
@@ -27,7 +60,12 @@
             <div class="custom-validation-summary text-center">
                 @if (!ViewData.ModelState.IsValid)
                 {
-                    <p class="text-danger">Email já cadastrado.</p>
+                    <div class="text-danger">
+                        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                        {
+                            <p>@error.ErrorMessage</p>
+                        }
+                    </div>
                 }
 
                 @if (TempData["SuccessMessage"] != null)
@@ -36,21 +74,22 @@
                 }
             </div>
 
-            <form asp-action="Register">
+            <form asp-action="Register" id="registerForm">
                 <div class="form-group">
-                    <input asp-for="Nome" class="fadeIn second form-control" placeholder="Nome" />
+                    <input asp-for="Nome" class="fadeIn second form-control" placeholder="Nome" id="nomeField" />
                 </div>
 
                 <div class="form-group">
-                    <input asp-for="Email" class="fadeIn second form-control" placeholder="Email" />
+                    <input asp-for="Email" class="fadeIn second form-control" placeholder="Email" id="emailField" />
+                </div>
+
+                <div class="form-group password-wrapper">
+                    <input asp-for="Senha" type="password" class="fadeIn third form-control" placeholder="Senha" id="passwordField" />
+                    <span class="toggle-password" onclick="togglePassword()"><i class="fas fa-eye"></i></span>
                 </div>
 
                 <div class="form-group">
-                    <input asp-for="Senha" type="password" class="fadeIn third form-control" placeholder="Senha" />
-                </div>
-
-                <div class="form-group">
-                    <input type="submit" class="fadeIn fourth btn btn-primary" value="Registrar" />
+                    <input type="submit" class="fadeIn fourth btn btn-primary" value="Registrar" id="registerButton" disabled data-toggle="tooltip" title="Preencha todos os campos!" />
                 </div>
             </form>
 
@@ -60,11 +99,35 @@
         </div>
     </div>
 
-    @section Scripts {
-        <!-- Renderiza scripts de validação -->
-        @{
-            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+
+            function toggleRegisterButton() {
+                const nomeFilled = $('#nomeField').val().trim() !== '';
+                const emailFilled = $('#emailField').val().trim() !== '';
+                const passwordFilled = $('#passwordField').val().trim() !== '';
+
+                if (nomeFilled && emailFilled && passwordFilled) {
+                    $('#registerButton').prop('disabled', false).tooltip('dispose');
+                } else {
+                    $('#registerButton').prop('disabled', true).tooltip();
+                }
+            }
+
+            $('#nomeField, #emailField, #passwordField').on('input', toggleRegisterButton);
+
+            toggleRegisterButton();
+        });
+
+        function togglePassword() {
+            const passwordField = document.getElementById('passwordField');
+            const passwordToggle = document.querySelector('.toggle-password i');
+            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordField.setAttribute('type', type);
+            passwordToggle.classList.toggle('fa-eye');
+            passwordToggle.classList.toggle('fa-eye-slash');
         }
-    }
+    </script>
 </body>
 </html>

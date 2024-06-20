@@ -1,12 +1,37 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\thiag\\Desktop\\ASP.NET_MVC_Projects\\VMController\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ED07C43F-AE92-442F-A636-40F5591C2009}|VMController\\VMController.csproj|c:\\users\\thiag\\desktop\\asp.net_mvc_projects\\vmcontroller\\vmcontroller\\views\\usuarios\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ED07C43F-AE92-442F-A636-40F5591C2009}|VMController\\VMController.csproj|solutionrelative:vmcontroller\\views\\usuarios\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\thiag\\Desktop\\ASP.NET_MVC_Projects\\VMController\\VMController\\Views\\Usuarios\\Register.cshtml",
+              "RelativeDocumentMoniker": "VMController\\Views\\Usuarios\\Register.cshtml",
+              "ToolTip": "C:\\Users\\thiag\\Desktop\\ASP.NET_MVC_Projects\\VMController\\VMController\\Views\\Usuarios\\Register.cshtml",
+              "RelativeToolTip": "VMController\\Views\\Usuarios\\Register.cshtml",
+              "ViewState": "AQIAABcAAAAAAAAAAAAswCEAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-20T00:05:06.322Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

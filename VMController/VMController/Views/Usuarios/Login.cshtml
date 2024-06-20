@@ -12,8 +12,42 @@
     <title>@ViewData["Title"] - VMController</title>
     <link rel="stylesheet" href="~/css/usuario.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <style>
+        #loginButton:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+            #loginButton:disabled:hover,
+            #loginButton:disabled:active,
+            #loginButton:disabled:focus {
+                background-color: #007bff; /* Cor original do botão */
+                border-color: #007bff; /* Cor original da borda do botão */
+                box-shadow: none; /* Remove o efeito de shadow */
+            }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 0px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #6c757d;
+            width: 1.5em;
+            height: 1.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
     <div class="wrapper fadeInDown">
@@ -40,26 +74,50 @@
                     <input asp-for="Email" class="fadeIn second form-control" placeholder="Email" id="emailField" />
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <input asp-for="Senha" type="password" class="fadeIn third form-control" placeholder="Senha" />
+                <div class="form-group password-wrapper">
+                    <input asp-for="Senha" type="password" class="fadeIn third form-control" placeholder="Senha" id="passwordField" />
+                    <span class="toggle-password" onclick="togglePassword()"><i class="fas fa-eye"></i></span>
                     <span asp-validation-for="Senha" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="fadeIn fourth btn btn-primary" value="Login" />
+                    <input type="submit" class="fadeIn fourth btn btn-primary" value="Login" id="loginButton" disabled data-toggle="tooltip" title="Preencha todos os campos!" />
                 </div>
             </form>
 
             <div>
                 <a asp-controller="Usuarios" asp-action="Register">Não possui login?</a>
             </div>
-
-            @section Scripts {
-                @{
-                    await Html.RenderPartialAsync("_ValidationScriptsPartial");
-                }
-                <script src="~/js/login.js"></script>
-            }
         </div>
     </div>
+
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+
+            function toggleLoginButton() {
+                const emailFilled = $('#emailField').val().trim() !== '';
+                const passwordFilled = $('#passwordField').val().trim() !== '';
+
+                if (emailFilled && passwordFilled) {
+                    $('#loginButton').prop('disabled', false).tooltip('dispose');
+                } else {
+                    $('#loginButton').prop('disabled', true).tooltip();
+                }
+            }
+
+            $('#emailField, #passwordField').on('input', toggleLoginButton);
+
+            toggleLoginButton();
+        });
+
+        function togglePassword() {
+            const passwordField = document.getElementById('passwordField');
+            const passwordToggle = document.querySelector('.toggle-password i');
+            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordField.setAttribute('type', type);
+            passwordToggle.classList.toggle('fa-eye');
+            passwordToggle.classList.toggle('fa-eye-slash');
+        }
+    </script>
 </body>
 </html>

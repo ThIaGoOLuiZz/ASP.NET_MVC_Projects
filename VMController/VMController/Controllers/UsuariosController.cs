@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -44,11 +46,26 @@ namespace VMController.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Verifica se o formato do email é válido
+                var emailAttribute = new EmailAddressAttribute();
+                if (!emailAttribute.IsValid(usuario.Email))
+                {
+                    ModelState.AddModelError("Email", "Formato de email inválido.");
+                    return View(usuario);
+                }
+
+                // Verifica se a senha atende aos requisitos
+                if (!IsValidPassword(usuario.Senha))
+                {
+                    ModelState.AddModelError("Senha", "A senha deve conter pelo menos uma letra maiúscula e um número.");
+                    return View(usuario);
+                }
+
                 // Verifica se o email já está cadastrado
                 var existingUser = await _context.Usuarios.FirstOrDefaultAsync(u => u.Email == usuario.Email);
                 if (existingUser != null)
                 {
-                    ModelState.AddModelError("", "Email já cadastrado.");
+                    ModelState.AddModelError("Email", "Email já cadastrado.");
                     return View(usuario);
                 }
 
@@ -94,6 +111,12 @@ namespace VMController.Controllers
         private bool UsuarioExists(int id)
         {
             return (_context.Usuarios?.Any(e => e.IdUsuario == id)).GetValueOrDefault();
+        }
+
+        private bool IsValidPassword(string password)
+        {
+            // Verifica se a senha contém pelo menos uma letra maiúscula e um número
+            return Regex.IsMatch(password, @"^(?=.*[A-Z])(?=.*\d).+$");
         }
     }
 }
