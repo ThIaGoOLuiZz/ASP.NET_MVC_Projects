@@ -17,6 +17,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
     <title>Adminmart Template - Navbar and Sidebar</title>
     <link href="~/dist/css/style.min.css" rel="stylesheet">
+    <style>
+        .fixed-size-btn {
+            width: 100px; /* Ajuste este valor conforme necessário */
+        }
+    </style>
 </head>
 
 <body>
@@ -124,18 +129,18 @@
                                     <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                         <thead>
                                             <tr>
-                                                <th>Host Name</th>
-                                                <th>Processador</th>
-                                                <th>Memoria Ram</th>
-                                                <th>Capacidade em Horas</th>
-                                                <th>Interações</th>
+                                                <th colspan="1" class="text-center">Host Name</th>
+                                                <th colspan="1" class="text-center">Processador</th>
+                                                <th colspan="1" class="text-center">Memoria Ram</th>
+                                                <th colspan="1" class="text-center">Capacidade em Horas</th>
+                                                <th colspan="1" class="text-center">Interações</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @if (!Model.Any())
                                             {
                                                 <tr>
-                                                    <td colspan="5" class="text-center">Não há dados disponíveis</td>
+                                                    <td colspan="5" class="text-center align-middle">Não há dados disponíveis</td>
                                                 </tr>
                                             }
                                             else
@@ -143,14 +148,14 @@
                                                 @foreach (var item in Model)
                                                 {
                                                     <tr>
-                                                        <td>@Html.DisplayFor(modelItem => item.HostName)</td>
-                                                        <td>@Html.DisplayFor(modelItem => item.Processador)</td>
-                                                        <td>@Html.DisplayFor(modelItem => item.MemoriaRam)</td>
-                                                        <td>@Html.DisplayFor(modelItem => item.CapacidadeHoras)</td>
-                                                        <td>
-                                                            <a asp-action="Edit" asp-route-id="@item.idVM">Edit</a> |
-                                                            <a asp-action="Details" asp-route-id="@item.idVM">Details</a> |
-                                                            <a asp-action="Delete" asp-route-id="@item.idVM">Delete</a>
+                                                        <td class="text-center align-middle">@Html.DisplayFor(modelItem => item.HostName)</td>
+                                                        <td class="text-center align-middle">@Html.DisplayFor(modelItem => item.Processador)</td>
+                                                        <td class="text-center align-middle">@Html.DisplayFor(modelItem => item.MemoriaRam)</td>
+                                                        <td class="text-center align-middle">@Html.DisplayFor(modelItem => item.CapacidadeHoras)</td>
+                                                        <td class="d-flex justify-content-around align-items-center">
+                                                            <a asp-action="Edit" asp-route-id="@item.idVM" class="btn waves-effect waves-light btn-primary fixed-size-btn">Editar</a>
+                                                            <a asp-action="Details" asp-route-id="@item.idVM" class="btn waves-effect waves-light btn-primary fixed-size-btn">Detalhes</a>
+                                                            <a asp-action="Delete" asp-route-id="@item.idVM" class="btn waves-effect waves-light btn-danger fixed-size-btn">Deletar</a>
                                                         </td>
                                                     </tr>
                                                 }
