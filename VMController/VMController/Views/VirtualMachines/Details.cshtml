@@ -1,0 +1,42 @@
+﻿@model VMController.Models.VirtualMachine
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>VirtualMachine</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HostName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HostName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Processador)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Processador)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MemoriaRam)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MemoriaRam)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CapacidadeHoras)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CapacidadeHoras)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.idVM">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -58,6 +58,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/thiag/Desktop/ASP.NET_MVC_Projects/VMController/VMController/Views/VirtualMachines/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlydHVhbE1hY2hpbmVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/thiag/Desktop/ASP.NET_MVC_Projects/VMController/VMController/Views/VirtualMachines/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlydHVhbE1hY2hpbmVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/thiag/Desktop/ASP.NET_MVC_Projects/VMController/VMController/Views/VirtualMachines/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlydHVhbE1hY2hpbmVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/thiag/Desktop/ASP.NET_MVC_Projects/VMController/VMController/Views/VirtualMachines/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlydHVhbE1hY2hpbmVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/thiag/Desktop/ASP.NET_MVC_Projects/VMController/VMController/Views/VirtualMachines/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlydHVhbE1hY2hpbmVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/thiag/Desktop/ASP.NET_MVC_Projects/VMController/VMController/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\thiag\\Desktop\\ASP.NET_MVC_Projects\\VMController\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ED07C43F-AE92-442F-A636-40F5591C2009}|VMController\\VMController.csproj|c:\\users\\thiag\\desktop\\asp.net_mvc_projects\\vmcontroller\\vmcontroller\\views\\usuarios\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{ED07C43F-AE92-442F-A636-40F5591C2009}|VMController\\VMController.csproj|solutionrelative:vmcontroller\\views\\usuarios\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{ED07C43F-AE92-442F-A636-40F5591C2009}|VMController\\VMController.csproj|c:\\users\\thiag\\desktop\\asp.net_mvc_projects\\vmcontroller\\vmcontroller\\views\\virtualmachines\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ED07C43F-AE92-442F-A636-40F5591C2009}|VMController\\VMController.csproj|solutionrelative:vmcontroller\\views\\virtualmachines\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\thiag\\Desktop\\ASP.NET_MVC_Projects\\VMController\\VMController\\Views\\Usuarios\\Register.cshtml",
-              "RelativeDocumentMoniker": "VMController\\Views\\Usuarios\\Register.cshtml",
-              "ToolTip": "C:\\Users\\thiag\\Desktop\\ASP.NET_MVC_Projects\\VMController\\VMController\\Views\\Usuarios\\Register.cshtml",
-              "RelativeToolTip": "VMController\\Views\\Usuarios\\Register.cshtml",
-              "ViewState": "AQIAABcAAAAAAAAAAAAswCEAAAAfAAAA",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\thiag\\Desktop\\ASP.NET_MVC_Projects\\VMController\\VMController\\Views\\VirtualMachines\\Index.cshtml",
+              "RelativeDocumentMoniker": "VMController\\Views\\VirtualMachines\\Index.cshtml",
+              "ToolTip": "C:\\Users\\thiag\\Desktop\\ASP.NET_MVC_Projects\\VMController\\VMController\\Views\\VirtualMachines\\Index.cshtml",
+              "RelativeToolTip": "VMController\\Views\\VirtualMachines\\Index.cshtml",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAADMAAACBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-20T00:05:06.322Z",
+              "WhenOpened": "2024-06-25T02:41:46.314Z",
               "EditorCaption": ""
             }
           ]

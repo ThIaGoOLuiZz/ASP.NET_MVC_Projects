@@ -10,6 +10,10 @@ builder.Services.AddDbContext<ContextoUsuario>(
     options => options.UseSqlServer("server=COMPUTADOR; DataBase=Usuarios; trusted_connection=true; TrustServerCertificate=True;")
 );
 
+builder.Services.AddDbContext<ContextoVM>(
+    options => options.UseSqlServer("server=COMPUTADOR; DataBase=VirtualMachines; trusted_connection=true; TrustServerCertificate=True;")
+);
+
 
 var app = builder.Build();
 
