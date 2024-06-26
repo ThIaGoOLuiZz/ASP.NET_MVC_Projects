@@ -6,9 +6,13 @@ namespace VMController.Models
     public class VirtualMachine
     {
         public int idVM { get; set; }
+
+        [Display(Name = "Nome do Host")]
         public string HostName { get; set; }
         public string Processador { get; set; }
         public int MemoriaRam { get; set; }
+
+        [Display(Name = "Capacidade de Horas")]
         public float CapacidadeHoras { get; set; }
     }
 }

@@ -1,49 +1,147 @@
 ﻿@model VMController.Models.VirtualMachine
 
 @{
+    Layout = null;
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
 
-<h4>VirtualMachine</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="idVM" />
-            <div class="form-group">
-                <label asp-for="HostName" class="control-label"></label>
-                <input asp-for="HostName" class="form-control" />
-                <span asp-validation-for="HostName" class="text-danger"></span>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/assets/images/favicon.png">
+    <title>@ViewData["Title"] - VMController</title>
+    <link href="~/dist/css/style.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+        <!-- Navbar -->
+        <header class="topbar" data-navbarbg="skin6">
+            <nav class="navbar top-navbar navbar-expand-md">
+                <div class="navbar-header" data-logobg="skin6">
+                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                    <div class="navbar-brand">
+                        <a href="index.html">
+                            <b class="logo-icon">
+                                <img src="~/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                                <img src="~/assets/images/logo-icon.png" alt="homepage" class="light-logo" />
+                            </b>
+                            <span class="logo-text">
+                                <img src="~/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                                <img src="~/assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
+                            </span>
+                        </a>
+                    </div>
+                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
+                </div>
+                <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav float-left mr-auto ml-3 pl-1"></ul>
+                    <ul class="navbar-nav float-right">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="~/assets/images/users/profile-pic.jpg" alt="user" class="rounded-circle" width="40">
+                                <span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span> <span class="text-dark">Jason Doe</span> <i data-feather="chevron-down" class="svg-icon"></i></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
+                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="user" class="svg-icon mr-2 ml-1"></i> My Profile</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="settings" class="svg-icon mr-2 ml-1"></i> Account Setting</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="power" class="svg-icon mr-2 ml-1"></i> Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- End Navbar -->
+        <!-- Sidebar -->
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <div class="scroll-sidebar" data-sidebarbg="skin6">
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link" href="index.html" aria-expanded="false">
+                                <i data-feather="home" class="feather-icon"></i>
+                                <span class="hide-menu">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link" href="other-view.html" aria-expanded="false">
+                                <i data-feather="cpu" class="feather-icon"></i>
+                                <span class="hide-menu">Máquinas Virtuais</span>
+                            </a>
+                            <a class="sidebar-link sidebar-link" href="other-view.html" aria-expanded="false">
+                                <i data-feather="play" class="feather-icon"></i>
+                                <span class="hide-menu">Processos (RPA)</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-            <div class="form-group">
-                <label asp-for="Processador" class="control-label"></label>
-                <input asp-for="Processador" class="form-control" />
-                <span asp-validation-for="Processador" class="text-danger"></span>
+        </aside>
+        <!-- End Sidebar -->
+        <!-- Page Content -->
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <h1>Editar</h1>
+                <h4>VirtualMachine</h4>
+                <hr />
+                <div class="d-flex justify-content-center row">
+                    <div class="col-md-4">
+                        <form asp-action="Edit" class="mt-5">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="idVM" />
+                            <div class="form-group">
+                                <label asp-for="HostName" class="control-label"></label>
+                                <input asp-for="HostName" class="form-control" />
+                                <span asp-validation-for="HostName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Processador" class="control-label"></label>
+                                <input asp-for="Processador" class="form-control" />
+                                <span asp-validation-for="Processador" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="MemoriaRam" class="control-label"></label>
+                                <input asp-for="MemoriaRam" class="form-control" />
+                                <span asp-validation-for="MemoriaRam" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="CapacidadeHoras" class="control-label"></label>
+                                <input asp-for="CapacidadeHoras" class="form-control" />
+                                <span asp-validation-for="CapacidadeHoras" class="text-danger"></span>
+                            </div>
+                            <div class="form-group text-center">
+                                <input type="submit" value="Salvar" class="btn btn-success" />
+                                <input asp-action="Index" type="submit" value="Voltar" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="MemoriaRam" class="control-label"></label>
-                <input asp-for="MemoriaRam" class="form-control" />
-                <span asp-validation-for="MemoriaRam" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CapacidadeHoras" class="control-label"></label>
-                <input asp-for="CapacidadeHoras" class="form-control" />
-                <span asp-validation-for="CapacidadeHoras" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
+        <!-- End Page Content -->
+        <!-- All Jquery -->
+        <script src="~/assets/libs/jquery/dist/jquery.min.js"></script>
+        <script src="~/assets/libs/popper.js/dist/umd/popper.min.js"></script>
+        <script src="~/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="~/dist/js/app-style-switcher.js"></script>
+        <script src="~/dist/js/feather.min.js"></script>
+        <script src="~/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+        <script src="~/dist/js/sidebarmenu.js"></script>
+        <script src="~/dist/js/custom.min.js"></script>
+
+        @section Scripts {
+            @{
+                await Html.RenderPartialAsync("_ValidationScriptsPartial");
+            }
+        }
     </div>
-</div>
+</body>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+</html>
