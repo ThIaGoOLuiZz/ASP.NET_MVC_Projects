@@ -14,6 +14,10 @@ builder.Services.AddDbContext<ContextoVM>(
     options => options.UseSqlServer("server=COMPUTADOR; DataBase=VirtualMachines; trusted_connection=true; TrustServerCertificate=True;")
 );
 
+builder.Services.AddDbContext<ProcessosRPAContext>(
+    options => options.UseSqlServer("server=COMPUTADOR; DataBase=VirtualMachines; trusted_connection=true; TrustServerCertificate=True;")
+);
+
 
 var app = builder.Build();
 

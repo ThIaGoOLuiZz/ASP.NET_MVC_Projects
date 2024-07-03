@@ -5,6 +5,7 @@ namespace VMController.Models
 {
     public class VirtualMachine
     {
+        [Key]
         public int idVM { get; set; }
 
         [Display(Name = "Nome do Host")]
