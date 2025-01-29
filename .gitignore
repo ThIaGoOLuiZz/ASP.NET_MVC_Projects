@@ -3,4 +3,5 @@
 ################################################################################
 
 /EmprestimoLivros/EmprestimoLivros/wwwroot/css/Materia.css
-/VMController/VMController/wwwroot
+/wwwroot
+**/wwwroot/
